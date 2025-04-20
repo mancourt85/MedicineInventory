@@ -1,0 +1,34 @@
+﻿using MedicineInventoryApp.Data;
+using MedicineInventoryApp.Interfaces;
+using MedicineInventoryApp.Interfaces.Repositories;
+using MedicineInventoryApp.Repositories;
+using Microsoft.EntityFrameworkCore;
+using MedicineInventoryApp.Controllers;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllersWithViews();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddDbContext<InventoryContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+var app = builder.Build();
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles(); 
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Medicines}/{action=Index}/{id?}");
+
+await app.RunAsync();
