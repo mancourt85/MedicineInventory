@@ -60,7 +60,7 @@ Set up the database using Entity Framework Core:
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=MedicineInventory;User Id=yourusername;Password=yourpassword;"
-}
+}```
 
 ### Run Instructions
 
