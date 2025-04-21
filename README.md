@@ -55,9 +55,38 @@ Configura la base de datos utilizando Entity Framework Core:
 3. Si la migración aún no se ha creado, ejecuta `Add-Migration InitialCreate` para generar el archivo de migración.
 4. Revisa y modifica la cadena de conexión en `appsettings.json` o `appsettings.Development.json`.
 
-**Ejemplo de cadena de conexión**:
+### Installation
 
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/MedicineInventoryApp.git
+cd MedicineInventoryApp
+```
+
+2. Install dependencies:
+```bash
+dotnet restore
+```
+
+3. Configure the database connection in `appsettings.json`:
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=MedicineInventory;User Id=tuusuario;Password=tucontraseña;"
+  "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MedicineInventoryDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
+```
+
+4. Create the database:
+```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+
+5. Build and run the application:
+```bash
+dotnet build
+dotnet run
+```
+
+6. Access the application:
+Open your browser and navigate to `https://localhost:5001/Medicines/Index`
+
