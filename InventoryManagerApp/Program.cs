@@ -9,7 +9,6 @@ using InventoryManagerApp.Interfaces.Export;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -23,12 +22,6 @@ builder.Services.AddScoped<IMedicineRepository, MedicineRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();                         
-    app.UseSwaggerUI();                       
-}
 
 app.UseHttpsRedirection();
 
