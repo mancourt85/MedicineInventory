@@ -1,16 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MedicineInventoryApp.Models;
 using MedicineInventoryApp.Interfaces.Repositories;
+using InventoryManagerApp.Interfaces.Export;
 
 namespace MedicineInventoryApp.Controllers
 {
     public class MedicinesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IExportService _exportService;
 
-        public MedicinesController(IUnitOfWork unitOfWork)
+        public MedicinesController(IUnitOfWork unitOfWork, IExportService exportService)
         {
             _unitOfWork = unitOfWork;
+            _exportService = exportService;
         }
 
         public async Task<IActionResult> Index()
@@ -97,5 +100,24 @@ namespace MedicineInventoryApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportPdf()
+        {
+            var medicines = await _unitOfWork.Medicines.GetAllAsync();
+            var pdf = _exportService.ExportMedicinesToPdf(medicines);
+            return File(pdf, "application/pdf", "medicine_inventory.pdf");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ExportExcel()
+        {
+            var medicines = await _unitOfWork.Medicines.GetAllAsync();
+            var excel = _exportService.ExportMedicinesToExcel(medicines);
+            return File(excel,
+                "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                "medicine_inventory.xlsx");
+        }
+
     }
 }
