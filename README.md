@@ -1,63 +1,63 @@
-# Medicine Inventory Management
+# Gestión de Inventario de Medicamentos
 
-## Description
+## Descripción
 
-This project is a web application built using **ASP.NET Core MVC**, **Entity Framework Core**, **ClosedXML**, and **PdfSharpCore**.  
-It is designed to manage a medicine inventory, providing functionality to manage medicine records, including creating, updating, deleting, and exporting data in both Excel and PDF formats.
+Este proyecto es una aplicación web construida utilizando **ASP.NET Core MVC**, **Entity Framework Core**, **ClosedXML** y **PdfSharpCore**.  
+Está diseñada para gestionar un inventario de medicamentos, proporcionando funcionalidades para gestionar los registros de medicamentos, incluyendo la creación, actualización, eliminación y exportación de datos en formatos Excel y PDF.
 
-## Features
+## Características
 
-- **CRUD Operations**: Create, Read, Update, Delete medicine records.
-- **Export Options**: Export medicine data to Excel or PDF formats.
-- **Database**: Utilizes **Entity Framework Core** for database operations.
-- **User Interface**: Built using **ASP.NET Core MVC** with a responsive layout.
+- **Operaciones CRUD**: Crear, Leer, Actualizar, Eliminar registros de medicamentos.
+- **Opciones de Exportación**: Exportar los datos de medicamentos a formatos Excel o PDF.
+- **Base de Datos**: Utiliza **Entity Framework Core** para operaciones con la base de datos.
+- **Interfaz de Usuario**: Construida con **ASP.NET Core MVC** con un diseño adaptable.
 
-## Tech Stack
+## Stack Tecnológico
 
 ### Backend
 
 - ASP.NET Core 8.0
 - Entity Framework Core
-- xUnit (for testing)
+- xUnit (para pruebas)
 
 ### Frontend
 
-- MVC pattern
+- Patrón MVC
 
-### Database
+### Base de Datos
 
-- SQL Server or any other database that supports EF Core
+- SQL Server o cualquier otra base de datos que soporte EF Core
 
-### Libraries
+### Bibliotecas
 
-- ClosedXML: For generating Excel files
-- PdfSharpCore: For generating PDF files
+- ClosedXML: Para generar archivos Excel
+- PdfSharpCore: Para generar archivos PDF
 
-### Authentication
+### Autenticación
 
-- JWT-based authentication (if applicable)
+- Autenticación basada en JWT (si aplica)
 
-## Prerequisites
+## Requisitos
 
-- **.NET 8 SDK**: Download from https://dotnet.microsoft.com/download/dotnet
-- **SQL Server**: Use either a local SQL Server instance or a remote database.
-- **Visual Studio 2022** (or any other IDE that supports ASP.NET Core development).
+- **.NET 8 SDK**: Descargalo desde https://dotnet.microsoft.com/download/dotnet
+- **SQL Server**: Utiliza una instancia local de SQL Server o una base de datos remota.
+- **Visual Studio 2022** (o cualquier otro IDE que soporte el desarrollo con ASP.NET Core).
 
-## Setup Instructions
+## Instrucciones de Configuración
 
-### Database Setup
+### Configuración de la Base de Datos
 
-Set up the database using Entity Framework Core:
+Configura la base de datos utilizando Entity Framework Core:
 
-1. Open the **Package Manager Console** in Visual Studio.
-2. Run the following command to apply migrations and create the SQL tables in your database:  
+1. Abre la **Consola del Administrador de Paquetes** en Visual Studio.
+2. Ejecuta el siguiente comando para aplicar las migraciones y crear las tablas SQL en tu base de datos:  
    `Update-Database`
-3. If the migration hasn't been created yet, run `Add-Migration InitialCreate` to generate the migration file.
-4. Check and modify the connection string in `appsettings.json` or `appsettings.Development.json`.
+3. Si la migración aún no se ha creado, ejecuta `Add-Migration InitialCreate` para generar el archivo de migración.
+4. Revisa y modifica la cadena de conexión en `appsettings.json` o `appsettings.Development.json`.
 
-**Example connection string**:
+**Ejemplo de cadena de conexión**:
 
 ```json
 "ConnectionStrings": {
-  "DefaultConnection": "Server=localhost;Database=MedicineInventory;User Id=yourusername;Password=yourpassword;"
+  "DefaultConnection": "Server=localhost;Database=MedicineInventory;User Id=tuusuario;Password=tucontraseña;"
 }
