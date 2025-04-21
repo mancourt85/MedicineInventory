@@ -61,27 +61,3 @@ Set up the database using Entity Framework Core:
 "ConnectionStrings": {
   "DefaultConnection": "Server=localhost;Database=MedicineInventory;User Id=yourusername;Password=yourpassword;"
 }
-
-### Run Instructions
-
-##Clone the repository:
-
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/MedicineInventoryApp.git
-Navigate into the project directory:
-
-##bash/cli
-
-cd MedicineInventoryApp
-Restore the required dependencies:
-
-##dotnetCLI
-
-dotnet restore
-
-Build the project:
-
-dotnet build
-Run the project:
