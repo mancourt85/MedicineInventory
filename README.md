@@ -55,38 +55,41 @@ Configura la base de datos utilizando Entity Framework Core:
 3. Si la migración aún no se ha creado, ejecuta `Add-Migration InitialCreate` para generar el archivo de migración.
 4. Revisa y modifica la cadena de conexión en `appsettings.json` o `appsettings.Development.json`.
 
-### Installation
+### Instalación
 
-1. Clone the repository:
+1. Clonar el repositorio:
 ```bash
 git clone https://github.com/your-username/MedicineInventoryApp.git
 cd MedicineInventoryApp
 ```
 
-2. Install dependencies:
+2. Instalar dependencias:
 ```bash
 dotnet restore
 ```
 
-3. Configure the database connection in `appsettings.json`:
+3. Configurar la conexión a la base de datos en `appsettings.json`:
 ```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MedicineInventoryDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
 ```
 
-4. Create the database:
+4. Crear la base de datos:
 ```bash
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
 
-5. Build and run the application:
+5. Compilar y ejecutar la aplicación:
 ```bash
 dotnet build
 dotnet run
 ```
 
-6. Access the application:
-Open your browser and navigate to `https://localhost:5001/Medicines/Index`
+6. Acceder a la aplicación:
+Abre tu navegador y navega a `https://localhost:5001/Medicines/Index`
 
+## Características
+- Gestión del inventario de medicamentos (Crear, Leer, Actualizar, Eliminar)
+- Exportación de datos a formatos Excel y PDF
