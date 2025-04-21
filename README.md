@@ -88,7 +88,7 @@ dotnet run
 ```
 
 6. Acceder a la aplicación:
-Abre tu navegador y navega a `https://localhost:5001/Medicines/Index`
+Abre tu navegador y navega a `https://localhost:7044/Medicines/Index`
 
 ## Características
 - Gestión del inventario de medicamentos (Crear, Leer, Actualizar, Eliminar)
